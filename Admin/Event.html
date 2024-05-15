@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Add Coupon</title>
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="Eventcss.css">
+
+</head>
+
+<body style="background-image: url('https://wallpaperaccess.com/download/eyeglasses-1753196');">
+
+
+   <div class="container">
+      <a href="Admin1.html" type="submit" class="btn1"> Go to Dashboard </a>
+
+      <div class="admin-product-form-container">
+
+        <div class="form">
+         <h3>add a new Event</h3><br>
+         <h4><p>Event Name :</p></h4>
+         <input type="text" placeholder="Enter event name" id="eventname" class="box"><br>
+        <h4><p>Event Start Date:</p></h4> 
+         <input type="date" placeholder="Start Date" id="eventstartdate" class="box"><br>
+         <h4><p>Event End  Date:</p></h4>
+         <input type="date" placeholder="End Date" id="eventenddate" class="box">
+         <button type="submit" onclick="addEvent()" class="btn"> Add Event </button>
+      </div>
+
+      </div>
+   </div>
+</body>
+<script>
+   var Indicator = document.getElementById("Indicator");
+
+   function Add() {
+      signUpForm.style.transform = "translatex(0px)";
+      Indicator.style.transform = "translatex(100px)";
+   }
+   const addEvent = async () => {
+
+      let xhr = new XMLHttpRequest();
+      xhr.open("POST", "http://localhost:8086/evt/eventrepo");
+      xhr.setRequestHeader("Content-type", "application/json");
+      xhr.onreadystatechange = function () {
+         if (xhr.readyState === 4) {
+            if (xhr.status == 200) {
+               window.location.href = "./Admin1.html"
+            }
+         }
+      };        
+
+      let data = JSON.stringify({
+         eventname: document.getElementById("eventname").value,
+         eventstartdate: document.getElementById("eventstartdate").value,
+         eventenddate: document.getElementById("eventenddate").value
+
+      });
+      console.log(data);
+      xhr.send(data);
+   };
+</script>
+
+</html>

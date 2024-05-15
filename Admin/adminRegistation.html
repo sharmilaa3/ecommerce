@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    
+    <!--link rel="stylesheet" href="homepage.css"-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewpoint" content="width=device-width,initial-scal=1.0">
+    <meta http-equip="X-UA-compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+
+
+<body style="background-image: url('https://wallpaperaccess.com/download/eyeglasses-3363864');">
+    <br><br>
+    <section class="vh-100 bg-image"
+  >
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center mb-5">Admin Registration</h2>
+
+              <form id="signupForm" name="signupForm">
+
+                <div class="form-outline mb-4">
+                  <input type="text" id="name" name="name" class="form-control form-control-lg" />
+                  <label class="form-label" for="form3Example1cg">Name</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="email" id="email" name="email" class="form-control form-control-lg" />
+                  <label class="form-label" for="form3Example3cg">Email</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="password" id="password" name="password" class="form-control form-control-lg" />
+                  <label class="form-label" for="form3Example4cg">Password</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="password" id="retypepassword" name="retypepassword" class="form-control form-control-lg" />
+                  <label class="form-label" for="form3Example4cdg">Repeat password</label>
+                </div>
+
+                <div class="d-flex justify-content-center">
+                  <button type="button"
+                    class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" onclick="signup()">Register</button>
+                </div>
+
+                <p class="text-center text-muted mt-5 mb-0">Already have an account? <a href="adminLogin.html"
+                    class="fw-bold text-body"><u>Login here</u></a></p>
+
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+    <script>
+        var signUpForm = document.getElementById("signupForm");
+        var Indicator = document.getElementById("Indicator");
+
+        function register() {
+            signUpForm.style.transform = "translatex(0px)";
+            Indicator.style.transform = "translatex(100px)";
+        }
+        const signup = async () => {
+            let ourForm = document.getElementById("signupForm");
+            function handleForm(event) {
+                event.preventDefault();
+            }
+            ourForm.addEventListener("submit", handleForm);
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", "http://localhost:8086/api/adminRepo");
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status == 200) {
+                        window.location.href = "./adminLogin.html"
+                    }
+                }
+            };
+
+            let data = JSON.stringify({
+                name: document.forms["signupForm"]["name"].value,
+                email: document.forms["signupForm"]["email"].value,
+                password: document.forms["signupForm"]["password"].value,
+                retypepassword: document.forms["signupForm"]["retypepassword"].value
+
+            });
+            console.log(data);
+            xhr.send(data);
+        };
+    </script>
+    	<script src="validationlogin.js"></script>
+    	
+</body>
+
+</html>

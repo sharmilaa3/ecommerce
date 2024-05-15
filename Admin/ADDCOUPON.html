@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Add Coupon</title>
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="CouponcodeCSS.css">
+
+</head>
+
+<body style="background-image: url('https://wallpaperaccess.com/download/eyeglasses-1753196');">
+
+
+   <div class="container">
+      <a href="Admin1.html" type="submit" class="btn1"> &#60;Go to
+         Dashboard </a>
+
+      <div class="admin-product-form-container">
+
+        <div class="form">
+         <h3>add a new Coupon</h3>
+         <input type="text"  placeholder="Enter coupon name" id="coupon_name" class="box">
+         <input type="text"  placeholder="Enter coupon code" id="coupon_code" class="box">
+         <input type="text"  placeholder="Discount %" id="discout_price" class="box">
+         <input type="text"  placeholder="ExpiringDate" id="expiry_date" class="box">
+         <button type="submit" onclick="addcoupon()" class="btn"> Add Coupon </button>
+      </div>
+
+      </div>
+   </div>
+</body>
+<script>
+   var Indicator = document.getElementById("Indicator");
+
+   function Add() {
+      signUpForm.style.transform = "translatex(0px)";
+      Indicator.style.transform = "translatex(100px)";
+   }
+   const addcoupon = async () => {
+
+      let xhr = new XMLHttpRequest();
+      xhr.open("POST", "http://localhost:8086/cpn/couponrepo");
+      xhr.setRequestHeader("Content-type", "application/json");
+      xhr.onreadystatechange = function () {
+         if (xhr.readyState === 4) {
+            if (xhr.status == 200) {
+               window.location.href = "./Admin1.html"
+            }
+         }
+      };        
+
+      let data = JSON.stringify({
+         coupon_name: document.getElementById("coupon_name").value,
+         coupon_code: document.getElementById("coupon_code").value,
+         discout_price: Number(document.getElementById("discout_price").value),
+         expiry_date: document.getElementById("expiry_date").value
+
+      });
+      console.log(data);
+      xhr.send(data);
+   };
+</script>
+
+</html>

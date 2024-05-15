@@ -1,0 +1,71 @@
+ <!DOCTYPE html>
+<html lang="en"> 
+<head>
+<link rel="stylesheet" href="CustomerListCSS.css">
+<title>Customer List</title>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body style="background-image: url('https://wallpaperaccess.com/download/eyeglasses-1753196');">
+<div class="container">
+<a href="Admin1.html" type="submit"class="btn1"> &#60; Go to Dashboard </a>
+<button type="submit" onclick="getUsers()" class="btn4">Get User List</button>
+
+ <div class="product-display">
+   
+      <table class="product-display-table">
+         <thead>
+         <tr>
+         <th>No of Users</th>
+			<th>User Id</th>
+         <th>User Name</th>
+         <th>Email</th>
+			<th>Phonenumber</th>
+         </tr>
+         </thead>
+      <tbody id="tbodyUid">
+
+      </tbody> 
+   
+      </table>
+   </div>
+</div>
+<script>
+
+   var userData = []
+   window.onload = function () {
+      var xhr = new XMLHttpRequest()
+      xhr.onreadystatechange = function () {
+         if (xhr.readyState == XMLHttpRequest.DONE) {
+
+
+            var data = JSON.parse(xhr.responseText);
+            console.log(data);
+            userData = data
+
+
+         }
+      }
+      xhr.open('GET', `http://localhost:8086/api/login`, true);
+      xhr.send(null);
+   }
+   function getUsers() {
+      $('#tbodyUid').empty()
+      userData.forEach(function (e, index) {
+         $("#tbodyUid").append(
+            `<tr>
+                   <th scope="row">${index + 1}</th>
+                   <td>${e.userid}</td>
+                   <td>${e.username}</td>
+                   <td>${e.gender}</td>
+                   <td>${e.email}</td>
+                   <td>${e.phonenumber}</td>
+                 </tr>`
+         );
+      });
+     
+   };
+
+
+</script>
+</body>
+</html>

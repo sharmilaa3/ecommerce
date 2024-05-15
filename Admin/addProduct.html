@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Product</title>
+
+  <!-- font awesome cdn link  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <!-- custom css file link  -->
+  <link rel="stylesheet" href="addProductCss.css">
+
+</head>
+
+<body  style="background-image: url('https://wallpaperaccess.com/download/eyeglasses-1753196');">
+
+
+  <div class="container">
+    <a href="Admin1.html" type="submit" class="btn1"> &#60; Go to Dashboard </a>
+    <div class="admin-product-form-container">
+
+      <div class="form">
+        <h3>add a new product</h3>
+        <input type="text" placeholder="Enter product name" id="product_name" class="box">
+        <input type="text" placeholder="Enter product type" id="product_type" class="box">
+        <input type="number" placeholder="Enter product price" id="product_price" class="box">
+        <input type="text" placeholder="Enter product discription" id="product_descr" class="box">
+        <input type="file" id="myfile"  onchange="encodeImageFileAsURL(this)" class="box"><br><br>
+        <button type="submit" onclick="addproduct()">Add Product</button>
+      
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+              var nav1;
+            function encodeImageFileAsURL(element) {
+              var file = element.files[0];
+              var reader = new FileReader();
+              reader.onloadend = function() {
+                window.nav1 = reader.result;
+                
+               
+              }
+              reader.readAsDataURL(file);
+            }
+            console.log(nav1);
+
+
+
+
+
+
+    var loadFile = function(event) {
+	var image = document.getElementById('output');
+	image.src = URL.createObjectURL(event.target.files[0]);
+};
+    var Indicator = document.getElementById("Indicator");
+
+    function Add() {
+      signUpForm.style.transform = "translatex(0px)";
+      Indicator.style.transform = "translatex(100px)";
+    }
+    const addproduct = async () => {
+      let xhr = new XMLHttpRequest();
+      xhr.open("POST", "http://localhost:8086/prd/product_save");
+      xhr.setRequestHeader("Content-type", "application/json");
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+          if (xhr.status == 200) {
+            window.location.href ="./Admin1.html"
+
+          }
+        }
+      };
+
+      let data = JSON.stringify({
+        product_name: document.getElementById("product_name").value,
+        product_type:  document.getElementById("product_type").value,
+        product_price: Number( document.getElementById("product_price").value,),
+        product_descr:  document.getElementById("product_descr").value,
+        product_image: nav1,
+        
+      });
+      console.log(data);
+      xhr.send(data);
+    };
+  </script>
+</body>
+
+</html>
+
+
+
+

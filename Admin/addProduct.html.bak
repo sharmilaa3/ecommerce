@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Add Product</title>
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="C:\Users\Srihari\Desktop\AdminPage\addProductCss.css">
+
+</head>
+<body>
+
+   
+<div class="container">
+<a href="file:///C:/Users/Srihari/Desktop/AdminPage/Admin.html" type="submit"class="btn1"> &#60;-- Go to Dashboard </a>
+   <div class="admin-product-form-container">
+
+      <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data">
+         <h3>add a new product</h3>
+		 <input type="text" placeholder="Enter product id" name="product_id" class="box">
+         <input type="text" placeholder="Enter product name" name="product_name" class="box">
+		 <input type="text" placeholder="Enter product colour" name="product_colour" class="box">
+		 <input type="number" placeholder="Enter product quantity" name="product_quantity" class="box">
+         <input type="number" placeholder="Enter product price" name="product_price" class="box">
+		 <input type="text" placeholder="Enter product discription" name="product_disc" class="box">
+         <input type="file" accept="image/png, image/jpeg, image/jpg" name="product_image" class="box">
+		  <a href="file:///C:/Users/Srihari/Desktop/Admin.html" type="submit"class="btn"> Add Product </a>
+      </form>
+
+   </div>
+   		  
+</div>
+
+
+</body>
+</html>

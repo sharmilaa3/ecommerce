@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <link rel="stylesheet" href="ProductListCss.css">
+   <title>Product List</title>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body style="background-image: url('https://wallpaperaccess.com/download/eyeglasses-1753196');">
+   <div class="container">
+      <a href="Admin1.html" type="submit" class="btn1"> &#60; Go to
+         Dashboard </a>
+      <button type="submit" class="btn4" onclick="productlist()" placeholder="GetList">Get List</button>
+      <div class="product-display">
+         <table class="product-display-table">
+            <thead>
+               <tr>
+                  <th>Number of products</th>
+                  <th>product id</th>
+                  <th>product name</th>
+                  <th>product type</th>
+                  <th>discription</th>
+                  <th>product price</th>
+                  <th>product image</th>
+                  <th>Action</th>
+
+               </tr>
+            </thead>
+            <tbody id="tbodyId">
+               
+            </tbody>
+
+         </table>
+      </div>
+   </div>
+   <script>
+
+      var productdata = []
+      window.onload = function () {
+         var xhr = new XMLHttpRequest()
+         xhr.onreadystatechange = function () {
+            if (xhr.readyState == XMLHttpRequest.DONE) {
+               var data = JSON.parse(xhr.responseText);
+               console.log(data);
+               productdata = data
+
+            }
+         }
+         xhr.open('GET', `http://localhost:8086/prd/products`, true);
+         xhr.send(null);
+      }
+      function productlist() {
+         $('#tbodyId').empty() 
+         productdata.forEach(function (e, index) {
+            $("#tbodyId").append(
+               `<tr>
+                      <th scope="row">${index + 1}</th>
+                      <td>${e.product_id}</td>
+                      <td>${e.product_name}</td>
+                      <td>${e.product_type}</td>
+                      <td>${e.product_descr}</td>
+                      <td>${e.product_price}</td>
+                      <td><img src="${e.product_image}" style="width:100px"></td>
+                      <td><input type="submit" onclick="deleteById(${e.product_id})" name="delete"  class="btn" value="Delete" </td>
+                    </tr>`
+            );
+         });
+        
+      };
+     
+       function deleteById(product_id){
+var xhr = new XMLHttpRequest();
+xhr.open("DELETE", `http://localhost:8086/prd/product/${product_id}`, true);
+xhr.setRequestHeader("Content-type", "application/json");
+xhr.onreadystatechange = function () {
+         if (xhr.readyState === 4) {
+            if (xhr.status == 200) {
+               console.log("Success");
+               window.location.href = "./ProductList.html"
+            }
+         }
+      };
+xhr.send(product_id);
+
+       }
+   </script>
+</body>
+
+</html>

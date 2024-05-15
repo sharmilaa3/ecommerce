@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>admin Login Form </title>
+  <link rel="stylesheet" href="csslogin.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+</head>
+<body class="vh-100-bg-image"
+style="background-image: url('https://wallpaperaccess.com/download/eyeglasses-3364075');">
+  <div class="wrapper">
+    <header>Admin Login</header>
+    <form action="#">
+      <div class="field email">
+        <div class="input-area">
+          <input type="text" placeholder="Email Address">
+          <i class="icon fas fa-envelope"></i>
+          <i class="error error-icon fas fa-exclamation-circle"></i>
+        </div>
+        <div class="error error-txt">Email can't be blank</div>
+      </div>
+      <div class="field password">
+        <div class="input-area">
+          <input type="password" placeholder="Password">
+          <i class="icon fas fa-lock"></i>
+          <i class="error error-icon fas fa-exclamation-circle"></i>
+        </div>
+        <div class="error error-txt">Password can't be blank</div>
+      </div>
+      <div class="pass-txt"><a href="#">Forgot password?</a></div>
+      <input type="submit" value="Login">
+    </form>
+    <div class="sign-txt">Not yet member? <a href="#">Signup now</a></div>
+  </div>
+
+  <script src="validationlogin.js"></script>
+
+</body>
+</html>
+		  
+
+  <script>
+
+	  var regData = []
+	  window.onload = function () {
+		  var xhr = new XMLHttpRequest()
+		  xhr.onreadystatechange = function () {
+			  if (xhr.readyState == XMLHttpRequest.DONE) {
+
+
+				  var data = JSON.parse(xhr.responseText);
+				  console.log(data);
+				  regData = data
+
+			  }
+		  }
+		  xhr.open('GET', `http://localhost:8086/api/adminlogin`, true);
+		  xhr.send(null);
+	  }
+	  function login() {
+		  let ourForm = document.getElementById("loginFormId");
+
+	  function handleForm(event) {
+
+		event.preventDefault();
+
+	  }
+
+	  ourForm.addEventListener("submit", handleForm);
+		  regData.forEach(e => {
+			  if (e.email == document.getElementById("email").value && e.password == document.getElementById("Password").value) {
+		  localStorage.setItem("details", JSON.stringify(e));
+
+				  window.location.href = "./Admin1.html"
+
+			  } 
+		  });
+	  }
+  </script>
+
+  <script src="validationlogin.js"> 
+  </script>
+
+</body>
+
+</html>

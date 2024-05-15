@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category</title>
+     <!-- font awesome cdn link  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <!-- custom css file link  -->
+  <link rel="stylesheet" href="addProductCss.css">
+</head>
+<body style="background-image: url('https://wallpaperaccess.com/download/eyeglasses-1753196');">
+
+
+
+
+
+    <div class="container">
+        <a href="Admin1.html" type="submit" class="btn1"> &#60;Go to
+           Dashboard </a>
+  
+        <div class="admin-product-form-container">
+  
+          <div class="form">
+           <h3>add a Category</h3>
+           <input type="text" placeholder="Enter category name" id="category_name" class="box" >
+           <input type="text" placeholder="Category description" id="category_desc" class="box" >
+           <input type="Date" placeholder="Enter date" id="category_date" class="box" >
+           <button type="submit" onclick="addcategory()" class="btn"> Add Category </button >
+        </div>
+  
+        </div>
+     </div>
+  </body>
+  <script>
+     var Indicator = document.getElementById("Indicator");
+  
+     function Add() {
+        signUpForm.style.transform = "translatex(0px)";
+        Indicator.style.transform = "translatex(100px)";
+     }
+     const addcategory = async () => {
+  
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", "http://localhost:8086/cat/catrepo");
+        xhr.setRequestHeader("Content-type", "application/json");
+        xhr.onreadystatechange = function () {
+           if (xhr.readyState === 4) {
+              if (xhr.status == 200) {
+                 window.location.href = "./Admin.html"
+                 alert("")
+              }
+           }
+        };        
+  
+        let data = JSON.stringify({
+         category_name: document.getElementById("coupon_name").value,
+         category_desc: document.getElementById("coupon_code").value,
+         category_date: Number(document.getElementById("discout_price").value),
+  
+        });
+        console.log(data);
+        xhr.send(data);
+     };
+  </script>
+    
+</body>
+</html>
