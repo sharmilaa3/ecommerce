@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="cart1()">try</button>
+    <script>
+        function cart1() {
+            let person1 = prompt("Please enter your cartid", "Harry Potter");
+            let person2 = prompt("Please enter your userid", "Harry Potter");
+            
+            if (person != null) {
+              document.getElementById("demo").innerHTML =
+              "Hello " + person + "! How are you today?";
+              login();
+            }
+          }
+
+
+
+
+
+          const cart = async () => {
+            let ourForm = document.getElementById("signUpForm");
+            function handleForm(event) {
+                event.preventDefault();
+            }
+            ourForm.addEventListener("submit", handleForm);
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", "http://localhost:8086/addtocart/{productid}/{cartid}");
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status == 200) {
+                        window.location.href = "./indexx.html"
+                    }
+                }
+            };
+
+            let data = JSON.stringify({
+                username: document.forms["cart"]["username"].value,
+                email: document.forms["cart"]["email"].value,
+                password: document.forms["cart"]["password"].value,
+                roleId:2,
+
+            });
+            console.log(data);
+            xhr.send(data);
+        };
+
+
+
+
+        var regData = []
+		window.onload = function () {
+			var xhr = new XMLHttpRequest()
+			xhr.onreadystatechange = function () {
+				if (xhr.readyState == XMLHttpRequest.DONE) {
+
+
+					var data = JSON.parse(xhr.responseText);
+					console.log(data);
+					regData = data
+
+				}
+			}
+			xhr.open('GET', `http://localhost:8086/api/login`, true);
+			xhr.send(null);
+		}
+		function login() {
+			let ourForm = document.getElementById("loginFormId");
+
+        function handleForm(event) {
+
+          event.preventDefault();
+
+        }
+
+        ourForm.addEventListener("submit", handleForm);
+			regData.forEach(e => {
+				if (e.email == document.getElementById("email").value && e.password == document.getElementById("password").value) {
+            localStorage.setItem("details", JSON.stringify(e));
+
+					window.location.href = "./indexx.html"
+
+				} 
+			});
+		}
+    </script>
+    
+</body>
+</html>

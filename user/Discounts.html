@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Coupon</title>
+    <link rel="stylesheet" href="discount.css">
+    <meta charset="utf-8" />
+    <meta name="viewpoint" content="width=device-width,initial-scal=1.0">
+    <meta http-equip="X-UA-compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css" media="screen" type="text/css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.store.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <section id="nav-bar">
+        <nav class="navbar navbar-expand-lg navbar-light">
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="topnav">
+                <h2>Lensmart</h2><br><br>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarNav">
+
+                <ul class="navbar-nav ml-auto">
+
+                    <li class="nav-item">
+                        <a style="color:black;" class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a style="color:black;" class="nav-link"
+                            href="womenswear.html">womens wear</a>
+
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a style="color:black;" class="nav-link"
+                            href="MensWear.html">MensWear</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a style="color:black;" class="nav-link"
+                            href="kidswear.html">kids wear</a>
+                    </li>
+
+                    
+                    
+                    <li class="nav-item">
+                        <a style="color:black;" class="nav-link"
+                            href="cart.html">Cart</a>
+
+                    </li>
+                   
+                </ul>
+            </div>
+        </nav>
+
+    </section>
+
+    </div>
+
+
+    <div class="coupon-card">
+        <img src="D:\CapstoneGit\Capstone1\finally\dhana pics\hari5.jpg" class="logo">
+        <h3>Using HDFC Debit cards</h3>
+        <div class="coupon-row">
+            <span id="cpnCode">HDFCCARD5</span>
+            <span id="cpnBtn">COPY CODE</span>
+        </div>
+        <p>Valid Till:21 jun, 2023</p>
+        <div class="circle0"></div>
+        <div class="circle1"></div>
+    </div> &nbsp; &nbsp; &nbsp;
+    <div class="coupon-card1">
+        <img src="D:\CapstoneGit\Capstone1\finally\dhana pics\2.jpeg" class="logo1">
+        <h3>Using ICICI Debit and<br> Credit cards</h3>
+        <div class="coupon-row1">
+            <span id="cpnCode1">ICICICARD10</span>
+            <span id="cpnBtn1">COPY CODE</span>
+        </div>
+        <p>Valid Till:23 aug, 2023</p>
+        <div class="circle2"></div>
+        <div class="circle3"></div>
+    </div> &nbsp; &nbsp; &nbsp;
+    <div class="coupon-card2">
+        <img src="D:\CapstoneGit\Capstone1\finally\dhana pics\hari3.jpg" class="logo2">
+        <h3>Purchase on Mobiles</h3>
+        <div class="coupon-row2">
+            <span id="cpnCode2">SALESAVE35</span>
+            <span id="cpnBtn2">COPY CODE</span>
+        </div>
+        <p>Valid Till:1 june, 2023</p>
+        <div class="circle4"></div>
+        <div class="circle5"></div>
+    </div> &nbsp; &nbsp; &nbsp;
+    <div class="coupon-card3">
+        <img src="D:\CapstoneGit\Capstone1\finally\dhana pics\hari4.jpg" class="logo3">
+        <h3>Pay through wallets</h3>
+        <div class="coupon-row3">
+            <span id="cpnCode3">WALLET30</span>
+            <span id="cpnBtn3">COPY CODE</span>
+        </div>
+        <p>Valid Till:2 july, 2023</p>
+        <div class="circle6"></div>
+        <div class="circle7"></div>
+    </div>
+
+    <script>
+        var cpnBtn = document.getElementById("cpnBtn");
+        var cpnCode = document.getElementById("cpnCode");
+
+        cpnBtn.onclick = function () {
+            navigator.clipboard.writeText(cpnCode.innerHTML);
+            cpnBtn.innerHTML = "COPIED";
+            setTimeout(function () {
+                cpnBtn.innerHTML = "COPY CODE";
+            }, 3000);
+        }
+        var cpnBtn1 = document.getElementById("cpnBtn1");
+        var cpnCode1 = document.getElementById("cpnCode1");
+
+        cpnBtn1.onclick = function () {
+            navigator.clipboard.writeText(cpnCode1.innerHTML);
+            cpnBtn1.innerHTML = "COPIED";
+            setTimeout(function () {
+                cpnBtn1.innerHTML = "COPY CODE";
+            }, 3000);
+        }
+        var cpnBtn2 = document.getElementById("cpnBtn2");
+        var cpnCode2 = document.getElementById("cpnCode2");
+
+        cpnBtn2.onclick = function () {
+            navigator.clipboard.writeText(cpnCode2.innerHTML);
+            cpnBtn2.innerHTML = "COPIED";
+            setTimeout(function () {
+                cpnBtn2.innerHTML = "COPY CODE";
+            }, 3000);
+        }
+        var cpnBtn3 = document.getElementById("cpnBtn3");
+        var cpnCode3 = document.getElementById("cpnCode3");
+
+        cpnBtn3.onclick = function () {
+            navigator.clipboard.writeText(cpnCode3.innerHTML);
+            cpnBtn3.innerHTML = "COPIED";
+            setTimeout(function () {
+                cpnBtn3.innerHTML = "COPY CODE";
+            }, 3000);
+        }
+    </script>
+</body>
+
+</html>

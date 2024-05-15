@@ -1,0 +1,180 @@
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,900&display=swap" rel="stylesheet">
+    <meta charset="utf-8" />
+	<meta name="viewpoint" content="width=device-width,initial-scal=1.0">
+	<meta http-equip="X-UA-compatible" content="ie=edge">
+	<link rel="stylesheet" href="style.css" media="screen" type="text/css" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+	<script type="text/javascript" src="jquery.store.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  </head>
+    <style>
+      body {
+        text-align: center;
+        padding: 40px 0;
+        background: #EBF0F5;
+    
+      }
+        h1 {
+          color: #88B04B;
+          font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+          font-weight: 900;
+          font-size: 40px;
+          margin-bottom: 10px;
+        }
+        p {
+          color: #404F5E;
+          font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+          font-size:20px;
+          margin: 0;
+        }
+      i {
+        color: #9ABC66;
+        font-size: 100px;
+        line-height: 200px;
+        margin-left:-15px;
+      }
+      .card {
+        background: white;
+        padding: 60px;
+        border-radius: 4px;
+        box-shadow: 0 2px 3px #C8D0D8;
+        display: inline-block;
+        margin: 0 auto;
+      }
+    </style>
+    <body>
+        <section id="nav-bar">
+            <nav class="navbar navbar-expand-lg navbar-light">
+    
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="topnav">
+                    <h2>Lensmart</h2><br><br>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarNav">
+    
+                    <ul class="navbar-nav ml-auto">
+    
+                        <li class="nav-item">
+                            <a style="color:black;" class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="color:black;" class="nav-link"
+                                href="womenswear.html">Womens wear</a>
+    
+                        </li>
+    
+    
+                        <li class="nav-item">
+                            <a style="color:black;" class="nav-link"
+                                href="MensWear.html">MensWear</a>
+                        </li>
+    
+                        <li class="nav-item">
+                            <a style="color:black;" class="nav-link"
+                                href="kidswear.html">Kids wear</a>
+                        </li>
+    
+                        <li class="nav-item">
+                            <a style="color:black;" class="nav-link"
+                                href="Discounts.html" tabindex="-1"
+                                aria-disabled="true">Discount</a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="color:black;" class="nav-link" href="#contact">Help</a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="color:black;" class="nav-link"
+                                href="cart.html">Cart</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+    
+        </section>
+      <div class="card">
+      <div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
+        <i class="checkmark">✓</i>
+      </div>
+        <h1>Success</h1> 
+        <p>We received your purchase request;<br/> we'll be in touch shortly!</p>
+        <a type="submit" href="index.html" class="btn">Continue shopping</a>
+      </div>
+      <!------COntact------------>
+		<section id="contact">
+
+			<div class="container">
+				<h1>Get In Touch</h1>
+				<div class="row">
+					<div class="col-md-6">
+						<form class="contact-form">
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="Your Name.." id="name">
+							</div>
+							<div class="form-group">
+								<input type="number" class="form-control" placeholder="Phone no." id="phonenumber">
+							</div>
+							<div class="form-group">
+								<input type="email" class="form-control" placeholder="Email.." id="email">
+							</div>
+							<div class="form-group">
+								<input class="form-control" rows="4" placeholder="Message.." id="description">
+							</div>
+
+							<button type="submit" class="btn btn-primary" onclick="help1()">Submit</button>
+						</form>
+					</div>
+					<div class="col-md-6 contact-info">
+						<div class="follow"><b><i class="fa fa-map-marker"></i> </b>Main Road,Nellore,Andhra Pradesh
+						</div>
+						<div class="follow"><b><i class="fa fa-mobile"></i> </b>(+91)************</div>
+						<div class="follow"><b><i class="fa fa-envelope"></i> </b>*********@gmail.com</div>
+
+
+						<div class="follow"><label><b>Get Social </b></label>
+							<a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
+							<a href="https://www.youtube.com/"><i class="fa fa-youtube-play"></i></a>
+							<a href="https://twitter.com/login"><i class="fa fa-twitter"></i></a>
+							<a href="https://myaccount.google.com/"><i class="fa fa-google-plus"></i></a>
+
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+		</section>
+<script>
+    const help1 = async () => {
+
+      let xhr = new XMLHttpRequest();
+      xhr.open("POST", "http://localhost:8086/hp/help");
+      xhr.setRequestHeader("Content-type", "application/json");
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+          if (xhr.status == 200) {
+            window.location.href = "./index.html"
+          }
+        }
+      };
+      
+      let data = JSON.stringify({
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        phonenumber: Number(document.getElementById("phonenumber").value),
+        description: document.getElementById("description").value,
+      });
+      console.log(data);
+      xhr.send(data);
+      };
+        </script>
+    
+    </body>
+</html>

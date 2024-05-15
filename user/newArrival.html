@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Lensmart Online Store</title>
+	<meta charset="utf-8" />
+	<meta name="viewpoint" content="width=device-width,initial-scal=1.0">
+	<meta http-equip="X-UA-compatible" content="ie=edge">
+	<link rel="stylesheet" href="style.css" media="screen" type="text/css" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+	<script type="text/javascript" src="jquery.store.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+	<section id="nav-bar">
+		<nav class="navbar navbar-expand-lg navbar-light">
+
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+				aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="topnav">
+				<h2>Lensmart</h2><br><br>
+			</div>
+			<div class="collapse navbar-collapse" id="navbarNav">
+
+				<ul class="navbar-nav ml-auto">
+
+					<li class="nav-item">
+						<a style="color:black;" class="nav-link"
+							href="index.html">Home</a>
+					</li>
+					<li class="nav-item">
+						<a style="color:black;" class="nav-link"
+							href="newArrival.html">New Arrivals</a>
+
+					</li>
+					<li class="nav-item">
+						<a style="color:black;" class="nav-link"
+							href="womenswear.html">womens wear</a>
+
+					</li>
+
+
+					<li class="nav-item">
+						<a style="color:black;" class="nav-link"
+							href="MensWear.html">MensWear</a>
+					</li>
+
+					<li class="nav-item">
+						<a style="color:black;" class="nav-link"
+							href="kidswear.html">Kids wear</a>
+					</li>
+
+					<li class="nav-item">
+						<a style="color:black;" class="nav-link"
+							href="Discounts.html" tabindex="-1"
+							aria-disabled="true">Discount</a>
+					</li>
+					<li class="nav-item">
+						<a style="color:black;" class="nav-link" href="#contact">Help</a>
+					</li>
+					<li class="nav-item">
+						<a style="color:black;" class="nav-link"
+							href="cart.html">Cart</a>
+
+					</li>
+					<div id="loginName"> </div>
+
+
+
+				</ul>
+			</div>
+		</nav>
+
+	</section>
+
+
+
+	<section class="new-arrivals">
+		<div id="site">
+			<div class="container">
+				<div class="title-box">
+					<h2>Fashion framed Eyeglasses</h2>
+				</div>
+
+				<div class="row">
+					<div class="col-md-3">
+						<div class="product-top">
+							<img src="images\New Arrivals\eyeglasses ty5.jpeg">
+							<div class="overlay-right">
+								<button type="button" class="btn btn-secondary" title="Quick Shop">
+									<i class="fa fa-eye"></i>
+								</button>
+
+								<button type="button" class="btn btn-secondary" title="Add to Wishlist">
+									<i class="fa fa-heart-o"></i>
+								</button>
+
+								<button type="button" class="btn btn-secondary" title="Add to Cart">
+									<i class="fa fa-shopping-cart"></i>
+								</button>
+							</div>
+						</div>
+
+
+						<div class="product-bottom text-center">
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star"></i>
+							<i class="fa fa-star-half-o"></i>
+							<h3>Framed EyeGlasses for men</h3>
+							<span id="product_name"></span>
+							<div class="product-description">
+
+								<span id="product_price"></span>
+								<form class="add-to-cart" action="cart.html" method="post">
+									<div>
+										<label for="qty-2">Quantity</label>
+
+										<input type="number" name="qty-2" id="qty-2" class="qty" value="1" />
+									</div>
+									<p><input type="submit" value="Add to cart" class="btn" /></p>
+								</form>
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+				
+
+			</div>
+		</div>
+		<table class="product-display-table">
+			<thead>
+				<tr>
+					<th>Number of products</th>
+					<th>product id</th>
+					<th>product name</th>
+					<th>product type</th>
+					<th>discription</th>
+					<th>product price</th>
+				</tr>
+			</thead>
+			<tbody id="tbodyId">
+	
+			</tbody>
+	
+		</table>
+	</section>
+	
+	
+
+
+
+	<section id="services">
+
+		<div class="container">
+			<h1>Our Services</h1>
+			<div class="row services">
+				<div class="col-md-4 text-center">
+					<div class="icon">
+						<i class="fa fa-phone"></i>
+					</div>
+					<h3> 24/7 Support</h3>
+					<p>on order related queries</p>
+				</div>
+
+				<div class="col-md-4 text-center">
+					<div class="icon">
+						<i class="fa fa-shopping-cart"></i>
+					</div>
+					<h3> Return within 30 days</h3>
+					<p>of receiving your order</p>
+				</div>
+
+				<div class="col-md-4 text-center">
+					<div class="icon">
+						<i class="fa fa-truck"></i>
+					</div>
+					<h3>Get free delivery</h3>
+					<p>on orders above 99Euro</p>
+				</div>
+			</div>
+		</div>
+
+	</section>
+	<section id="contact">
+
+		<div class="container">
+			<h1>Get In Touch</h1>
+			<div class="row">
+				<div class="col-md-6">
+					<form class="contact-form">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Your Name.." id="name">
+						</div>
+						<div class="form-group">
+							<input type="number" class="form-control" placeholder="Phone no." id="phonenumber">
+						</div>
+						<div class="form-group">
+							<input type="email" class="form-control" placeholder="Email.." id="email">
+						</div>
+						<div class="form-group">
+							<input class="form-control" rows="4" placeholder="Message.." i id="description"></input>
+						</div>
+
+						<button type="submit" onclick="help()" class="btn btn-primary">Submit</button>
+					</form>
+				</div>
+				<div class="col-md-6 contact-info">
+					<div class="follow"><b><i class="fa fa-map-marker"></i> </b>kotti Reddy circle,kadapa,Andhra Pradesh
+					</div>
+					<div class="follow"><b><i class="fa fa-mobile"></i> </b>(+91)**********</div>
+					<div class="follow"><b><i class="fa fa-envelope"></i> </b>**************</div>
+
+
+					<div class="follow"><label><b>Get Social </b></label>
+						<a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
+						<a href="https://www.youtube.com/"><i class="fa fa-youtube-play"></i></a>
+						<a href="https://twitter.com/login"><i class="fa fa-twitter"></i></a>
+						<a href="https://myaccount.google.com/"><i class="fa fa-google-plus"></i></a>
+
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+	</section>
+
+	<script>
+
+		var productdata = []
+		window.onload = function () {
+			var xhr = new XMLHttpRequest()
+			xhr.onreadystatechange = function () {
+				if (xhr.readyState == XMLHttpRequest.DONE) {
+
+
+					var data = JSON.parse(xhr.responseText);
+					console.log(data);
+					productdata = data
+
+
+				}
+			}
+			xhr.open('GET', `http://localhost:8086/prd/products`, true);
+			xhr.send(null);
+		}
+	
+			productdata.forEach(function (e, index) {
+	
+				$("#tbodyId").append(
+					`<tr>       
+				<th scope="row">${index + 1}</th>
+                      <td>${e.product_id}</td>
+                      <td>${e.product_name}</td>
+                      <td>${e.product_type}</td>
+                      <td>${e.product_descr}</td>
+                      <td>${e.product_price}</td>
+                      
+                    </tr>`
+				);
+
+			});
+
+	
+
+	</script>
+
+
+</body>
+
+</html>

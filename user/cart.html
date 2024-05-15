@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Your Shopping Cart</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="style.css" media="screen" type="text/css" />
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+	<script type="text/javascript" src="jquery.store.js"></script>
+	<meta charset="utf-8" />
+	<meta name="viewpoint" content="width=device-width,initial-scal=1.0">
+	<meta http-equip="X-UA-compatible" content="ie=edge">
+	<link rel="stylesheet" href="style.css" media="screen" type="text/css" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+	<section id="nav-bar">
+		<nav class="navbar navbar-expand-lg navbar-light">
+
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+				aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="topnav">
+				<h2>Lensmart</h2><br><br>
+			</div>
+			<div class="collapse navbar-collapse" id="navbarNav">
+
+				<ul class="navbar-nav ml-auto">
+
+					<li class="nav-item">
+						<a style="color:black;" class="nav-link"
+							href="index.html">Home</a>
+					</li>
+					<li class="nav-item">
+						<a style="color:black;" class="nav-link"
+							href="womenswear.html">Womens wear</a>
+
+					</li>
+
+
+					<li class="nav-item">
+						<a style="color:black;" class="nav-link"
+							href="MensWear.html">MensWear</a>
+					</li>
+
+					<li class="nav-item">
+						<a style="color:black;" class="nav-link"
+							href="kidswear.html">Kids wear</a>
+					</li>
+
+					<li class="nav-item">
+						<a style="color:black;" class="nav-link"
+							href="Discounts.html" tabindex="-1"
+							aria-disabled="true">Discount</a>
+					</li>
+					<li class="nav-item">
+						<a style="color:black;" class="nav-link" href="#contact">Help</a>
+					</li>
+					<li class="nav-item">
+						<a style="color:black;" class="nav-link"
+							href="cart.html">Cart</a>
+
+					</li>
+					<li class="nav-item">
+						<a style="color:black;" class="nav-link"
+							href="orderDetails.html">OrderDetails</a>
+
+					</li>
+
+				</ul>
+			</div>
+		</nav>
+
+	</section>
+	<div id="site">
+		<header id="masthead">
+			<h1></h1>
+		</header>
+		<div id="content">
+			<h1>Your Shopping Cart</h1>
+			<form id="shopping-cart" action="cart.html" method="post">
+				<table class="shopping-cart">
+					<thead>
+						<tr>
+							<th scope="col">Item</th>
+							<th scope="col">Qty</th>
+							<th scope="col" colspan="2">Price</th>
+						</tr>
+					</thead>
+					<tbody>
+
+					</tbody>
+				</table><br>
+				<div class="apply" id="apply">
+					<input type="text" id="userInput" class="coupon" title="Enter coupon">
+
+					<input type="button" value="Submit" onclick="validate()">
+					<p id="text1"></p>
+				</div>
+				<p id="sub-total">
+					<strong>price</strong>: <span id="stotal">&#8377;</span><br>
+					<strong>Discount price</strong>: &#8377;<span id="disc"></span></br>
+					<strong>Total price</strong>: &#8377;<span id="tot"></span>
+				</p>
+				<ul id="shopping-cart-actions">
+					<li>
+						<input type="submit" name="delete" id="empty-cart" class="btn" value="Empty Cart" />
+					</li>
+					<li>
+						<a href="index.html" class="btn">Continue Shopping</a>
+					</li>
+					<li>
+						<a href="checkout.html" class="btn">Go To Checkout</a>
+					</li>
+				</ul>
+			</form>
+		</div>
+
+
+
+	</div>
+	<br>
+	<br>
+	<br>
+	<script>
+
+		var couponData = []
+		window.onload = function () {
+			var xhr = new XMLHttpRequest()
+			xhr.onreadystatechange = function () {
+				if (xhr.readyState == XMLHttpRequest.DONE) {
+
+
+					var data = JSON.parse(xhr.responseText);
+					console.log(data);
+					couponData = data;
+
+
+
+				}
+			}
+			xhr.open('GET', `http://localhost:8086/cpn/coupList`, true);
+			xhr.send(null);
+		}
+
+
+		function validate() {
+			let a = $('#stotal').text();
+			var discount;
+			couponData.forEach(e => {
+				if (e.coupon_code == document.getElementById("userInput").value) {
+					var b = (a * e.discount_price) / 100;
+					if (a < 1000) {
+						if (b > 100) {
+							b = 100;
+							var total = a - b;
+							document.getElementById("disc").innerHTML = b;
+							document.getElementById("tot").innerHTML = total;
+						} else {
+							var total = a - b;
+							document.getElementById("disc").innerHTML = b;
+							document.getElementById("tot").innerHTML = total;
+						}
+						document.getElementById("text1").innerHTML = "Coupon Applied &#10001;";
+
+					} else if (a < 2000) {
+						if (b > 200) {
+							b = 200;
+							var total = a - b;
+							document.getElementById("disc").innerHTML = b;
+							document.getElementById("tot").innerHTML = total;
+						} else {
+							var total = a - b;
+							document.getElementById("disc").innerHTML = b;
+							document.getElementById("tot").innerHTML = total;
+						}
+						document.getElementById("text1").innerHTML = "Coupon Applied &#10002;";
+
+					} else if (a < 3000) {
+						if (b > 300) {
+							b = 300;
+							var total = a - b;
+							document.getElementById("disc").innerHTML = b;
+							document.getElementById("tot").innerHTML = total;
+						} else {
+							var total = a - b;
+							document.getElementById("disc").innerHTML = b;
+							document.getElementById("tot").innerHTML = total;
+						}
+						document.getElementById("text1").innerHTML = "Coupon Applied &#10003;";
+
+					} else if (a < 4000) {
+						if (b > 400) {
+							b = 400;
+							var total = a - b;
+							document.getElementById("disc").innerHTML = b;
+							document.getElementById("tot").innerHTML = total;
+						} else {
+							var total = a - b;
+							document.getElementById("disc").innerHTML = b;
+							document.getElementById("tot").innerHTML = total;
+						}
+						document.getElementById("text1").innerHTML = "Coupon Applied &#10004;";
+
+					} else if (a < 5000) {
+						if (b > 500) {
+							b = 500;
+							var total = a - b;
+							document.getElementById("disc").innerHTML = b;
+							document.getElementById("tot").innerHTML = total;
+						} else {
+							var total = a - b;
+							document.getElementById("disc").innerHTML = b;
+							document.getElementById("tot").innerHTML = total;
+						}
+						document.getElementById("text1").innerHTML = "Coupon Applied &#10005;";
+
+					} else {
+						if (b > 500) {
+							b = 500;
+							var total = a - b;
+							document.getElementById("disc").innerHTML = b;
+							document.getElementById("tot").innerHTML = total;
+						} else {
+							var total = a - b;
+							document.getElementById("disc").innerHTML = b;
+							document.getElementById("tot").innerHTML = total;
+						}
+						document.getElementById("text1").innerHTML = "Coupon Applied &#10006;";
+
+					}
+
+				
+				}
+			});
+			
+
+		}
+
+
+	</script>
+</body>
+
+</html>

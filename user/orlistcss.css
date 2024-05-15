@@ -1,0 +1,23 @@
+p{
+	text-align:center;
+	font-size:30px;
+	color:blue;
+}
+table {
+  width: 100%;
+  text-align:left;
+}
+th {
+	height:50px;
+  background-color: #04AA6D;
+  color: white;
+}
+td{
+	height:30px;
+}
+
+th, td {
+  border-bottom: 1px solid #ddd;
+}
+tr:nth-child(even) {background-color: #f2f2f2;}
+tr:hover {background-color: coral;}
